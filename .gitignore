@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+
+# IDE/editor configs
+.vscode/
+
+# OS files
+.DS_Store
+
+# Database files
+*.sqlite3
+*.db
+
+# Migrations
+alembic/versions/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Selenium/Browser drivers
+chromedriver
+geckodriver
+
+# Static and build artifacts
+dist/
+build/
+*.egg-info/
