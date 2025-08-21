@@ -1,5 +1,5 @@
 from datetime import date
-from app.db.models.pool_snapshot import PoolSnapshotBase
+from app.db.models import PoolSnapshotBase
 
 
 class TestPoolSnapshotBase:

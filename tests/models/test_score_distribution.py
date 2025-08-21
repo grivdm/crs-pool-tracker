@@ -1,4 +1,4 @@
-from app.db.models.score_distribution import ScoreDistributionBase
+from app.db.models import ScoreDistributionBase
 
 
 class TestScoreDistributionBase:
