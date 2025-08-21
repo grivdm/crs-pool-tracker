@@ -1,5 +1,7 @@
 from typing import Optional
-from sqlmodel import Field, SQLModel
+from sqlmodel import Field, SQLModel, Relationship
+
+from app.db.models import ScoreRange, PoolSnapshot
 
 
 class ScoreDistributionBase(SQLModel):
@@ -11,6 +13,10 @@ class ScoreDistributionBase(SQLModel):
 class ScoreDistribution(ScoreDistributionBase, table=True):
     __tablename__ = "score_distributions"
     id: Optional[int] = Field(default=None, primary_key=True)
+
+    # Relationships
+    snapshot: "PoolSnapshot" = Relationship(back_populates="score_distributions")
+    score_range: "ScoreRange" = Relationship(back_populates="score_distributions")
 
 
 class ScoreDistributionCreate(ScoreDistributionBase):

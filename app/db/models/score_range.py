@@ -1,6 +1,8 @@
-from typing import Optional, Self
-from sqlmodel import Field, SQLModel
+from typing import List, Optional, Self
+from sqlmodel import Field, Relationship, SQLModel
 from pydantic import PositiveInt, model_validator
+
+from app.db.models import ScoreDistribution
 
 
 class ScoreRangeBase(SQLModel):
@@ -18,6 +20,11 @@ class ScoreRangeBase(SQLModel):
 class ScoreRange(ScoreRangeBase, table=True):
     __tablename__ = "score_ranges"
     id: Optional[int] = Field(default=None, primary_key=True)
+
+    # Relationships
+    score_distributions: List["ScoreDistribution"] = Relationship(
+        back_populates="score_range"
+    )
 
 
 class ScoreRangeCreate(ScoreRangeBase):
